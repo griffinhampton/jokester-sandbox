@@ -52,9 +52,9 @@ export default function RegisterPage() {
 
         {role === 'comedian' && (
           <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-            <span style={{ color: 'var(--accent-pink)', fontSize: '0.85rem', cursor: 'pointer', fontWeight: 'bold' }}>
+            <Link to="/learn-more" style={{ color: 'var(--accent-pink)', fontSize: '0.85rem', cursor: 'pointer', fontWeight: 'bold', textDecoration: 'none' }}>
               Learn more about Jokester for Comedians ↗
-            </span>
+            </Link>
           </div>
         )}
 

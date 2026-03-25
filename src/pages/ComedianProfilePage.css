@@ -1,0 +1,259 @@
+.comedian-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0A0A0A;
+}
+
+.comedian-main {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  margin-left: 60px;
+}
+
+.comedian-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-start;
+  padding: 60vh 5% 0 5%;
+}
+
+.comedian-hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center 20%;
+  z-index: 1;
+}
+
+.comedian-hero-bg::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%), linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0) 60%);
+}
+
+.comedian-hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comedian-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: white;
+  margin: 0;
+  line-height: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.social-icon:hover {
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
+}
+
+.social-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tabs */
+.comedian-tabs-container {
+  padding: 0 5%;
+  margin-top: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 2.5rem;
+}
+
+.comedian-tab {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding-bottom: 1.25rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  bottom: -1px;
+  transition: color 0.2s;
+}
+
+.comedian-tab:hover {
+  color: var(--accent-pink);
+}
+
+.comedian-tab.active {
+  color: white;
+  border-bottom-color: white;
+}
+
+.comedian-tab-content {
+  padding: 3rem 5% 6rem 5%;
+  max-width: 1400px;
+}
+
+.section-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+/* Specific grids */
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.special-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.special-card:hover {
+  transform: scale(1.02);
+}
+
+.special-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.special-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: white;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.special-title {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.about-text {
+  color: #AAA;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  max-width: 800px;
+}
+
+/* Shared components from CheckoutPage */
+.comedian-merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.comedian-merch-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.comedian-merch-card:hover { transform: scale(1.02); }
+
+.comedian-merch-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: #111;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Tour Component Safe Imports */
+.tour-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tour-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.25rem 1.75rem;
+  transition: background 0.2s;
+}
+.tour-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.tour-date-col {
+  width: 25%;
+}
+.tour-venue-col {
+  flex: 1;
+}
+.tour-primary {
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+.tour-secondary {
+  color: #888;
+  font-size: 0.85rem;
+}
+.tour-buy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+.tour-buy-btn:hover {
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
+}

@@ -46,7 +46,7 @@
 }
 
 .tab-btn:hover {
-  color: #DDD;
+  color: var(--accent-pink);
 }
 
 .tab-btn.active {

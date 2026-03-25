@@ -9,6 +9,8 @@ import ShopPage from './pages/ShopPage';
 import CheckoutPage from './pages/CheckoutPage';
 import PlayerPage from './pages/PlayerPage';
 import RegisterPage from './pages/RegisterPage';
+import ComedianProfilePage from './pages/ComedianProfilePage';
+import LearnMorePage from './pages/LearnMorePage';
 import './index.css';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
               <Route path="/account" element={<AccountPage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/checkout/:id" element={<CheckoutPage />} />
+              <Route path="/comedian/:id" element={<ComedianProfilePage />} />
+              <Route path="/learn-more" element={<LearnMorePage />} />
               <Route path="/watch/:id" element={<PlayerPage />} />
             </Routes>
           </main>

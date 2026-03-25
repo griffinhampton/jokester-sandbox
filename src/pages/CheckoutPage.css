@@ -57,7 +57,8 @@
 }
 
 .back-to-home-btn:hover {
-  background: rgba(255,255,255,0.15);
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
 }
 
 .checkout-hero-content {
@@ -121,7 +122,8 @@
 }
 
 .action-btn:hover {
-  background: rgba(255,255,255,0.15);
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
 }
 
 .checkout-purchase-card {
@@ -279,7 +281,7 @@
 }
 
 .checkout-tab:hover {
-  color: #CCC;
+  color: var(--accent-pink);
 }
 
 .checkout-tab.active {
@@ -390,7 +392,8 @@
 }
 
 .tour-buy-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
 }
 
 .tour-see-all-btn {
@@ -408,5 +411,6 @@
 }
 
 .tour-see-all-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
 }

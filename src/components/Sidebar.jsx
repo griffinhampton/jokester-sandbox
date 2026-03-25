@@ -66,7 +66,7 @@ export default function Sidebar() {
         {isLoggedIn ? (
           <div className="profile-menu-container">
             <button className="user-icon-wrapper" onClick={() => { if (!dropdownOpen) setDropdownView('main'); setDropdownOpen(!dropdownOpen); }}>
-              <img src="/comedianpics/image 5.png" alt="Profile" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} />
+              <img src="/j.svg" alt="Profile" style={{ width: '22px', height: '22px' }} />
             </button>
             
             {dropdownOpen && (

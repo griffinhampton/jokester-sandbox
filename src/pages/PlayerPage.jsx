@@ -24,22 +24,18 @@ export default function PlayerPage() {
     <div className="player-layout">
       <div className="player-main">
         
-        <div className="player-header-bar">
-          <button className="sidebar-toggle-btn" onClick={() => navigate('/library')}>
-            <img 
-              src={chevronRightIcon} 
-              alt="Back to Library" 
-              style={{ transform: 'rotate(180deg)', width: '22px' }} 
-            />
-          </button>
-        </div>
-
         <div className="video-container">
+          <div className="player-header-bar">
+            <button className="sidebar-toggle-btn" onClick={() => navigate('/library')}>
+              <img 
+                src={chevronRightIcon} 
+                alt="Back to Library" 
+                style={{ transform: 'rotate(180deg)', width: '22px' }} 
+              />
+            </button>
+          </div>
+          
           <div className="video-backdrop" style={{ backgroundImage: `url("/comedianpics/playback-image.png")` }}></div>
-
-          <button className="center-play-button">
-            <img src={playIcon} alt="Play Video" style={{ width: '32px', marginLeft: '6px' }} />
-          </button>
 
           <div className="bottom-controls-overlay">
             <div className="progress-bar-container">

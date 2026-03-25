@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useParams, useNavigate, Navigate, Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { getItemById } from '../data/mockData';
 import Sidebar from '../components/Sidebar';
@@ -78,7 +78,11 @@ export default function CheckoutPage() {
           <div className="checkout-hero-content">
             <span className="age-badge">HD</span>
             <h1 className="checkout-title">{HeroItem.title}</h1>
-            <p className="checkout-author">{HeroItem.author}</p>
+            <p className="checkout-author">
+               <Link to={`/comedian/${id || 'lucas'}`} style={{ color: 'inherit', textDecoration: 'none' }} className="author-link">
+                  {HeroItem.author}
+               </Link>
+            </p>
             <p className="checkout-desc">
               Lucas Zelnick has been making audiences laugh for over a decade with his sharp observational humor and quick wit. 
               In "Emotionally Available, Unfortunately," he tackles the modern dating landscape with brutal honesty and self-deprecating charm.
@@ -168,7 +172,8 @@ export default function CheckoutPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                   <span style={{ fontWeight: 'bold', color: 'white', fontSize: '1rem' }}>Comedian</span>
                   <span style={{ color: '#888', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <img src="/comedianpics/image 5.png" alt="Lucas" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} /> Lucas Zelnick
+                    <img src="/comedianpics/image 5.png" alt="Lucas" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} /> 
+                    <Link to={`/comedian/${id || 'lucas'}`} style={{ color: 'inherit', textDecoration: 'none' }} className="author-link">Lucas Zelnick</Link>
                   </span>
                 </div>
               </div>

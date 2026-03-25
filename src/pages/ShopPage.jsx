@@ -105,8 +105,10 @@ export default function ShopPage() {
           {shopData.map((comedian, index) => (
             <div key={comedian.id} className="shop-comedian-row">
               <div className="comedian-info-header">
-                <img src={comedian.avatar} alt={comedian.name} className="comedian-mini-avatar" />
-                <h2>{comedian.name}</h2>
+                <Link to={`/comedian/${comedian.id}`} style={{ display: 'contents', color: 'inherit', textDecoration: 'none' }} className="author-link">
+                  <img src={comedian.avatar} alt={comedian.name} className="comedian-mini-avatar" />
+                  <h2>{comedian.name}</h2>
+                </Link>
               </div>
               
               <div className="merch-grid">

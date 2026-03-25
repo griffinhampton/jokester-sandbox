@@ -36,8 +36,8 @@
 }
 
 .user-icon-wrapper:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #AAA;
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
 }
 
 .sidebar-nav {
@@ -68,7 +68,7 @@
 }
 
 .sidebar-item:hover {
-  color: #AAA;
+  color: var(--accent-pink);
 }
 
 .sidebar-item.active {
@@ -116,7 +116,7 @@
 }
 
 .dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--accent-pink);
   color: white;
 }
 
@@ -145,5 +145,5 @@
 }
 
 .dropdown-item:hover .dropdown-item-right {
-  color: #AAA;
+  color: white;
 }

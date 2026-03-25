@@ -74,7 +74,11 @@ export default function HomePage() {
       </div>
       <div className="card-info">
         <h4>{item.title}</h4>
-        <p>{item.author}</p>
+        <p>
+          <Link to={`/comedian/${item.id}`} onClick={(e) => e.stopPropagation()} style={{ color: 'inherit', textDecoration: 'none' }}>
+            {item.author}
+          </Link>
+        </p>
       </div>
     </div>
   );
@@ -206,7 +210,7 @@ export default function HomePage() {
               <button className="rail-arrow left-arrow" onClick={() => scrollRail(featuredRef, -1)}><ArrowLeft /></button>
               <div className="featured-rail" ref={featuredRef}>
                 {extFeatured.map((item) => (
-                  <div key={item.id} className="featured-comedian">
+                  <div key={item.id} className="featured-comedian" onClick={() => navigate(`/comedian/${item.id}`)} style={{ cursor: 'pointer' }}>
                     <div className="featured-circle" style={{ backgroundImage: `url("${item.image}")` }}></div>
                     <p>{item.name}</p>
                   </div>

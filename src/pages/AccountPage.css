@@ -77,7 +77,7 @@
 }
 
 .tab-btn:hover {
-  color: #CCC;
+  color: var(--accent-pink);
 }
 
 .tab-btn.active {
@@ -148,17 +148,18 @@
 }
 
 .btn-manage:hover {
-  background: rgba(255,255,255,0.05);
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
 }
 
 .btn-signout {
-  color: #E53E3E;
-  border-color: rgba(229, 62, 62, 0.2);
+  color: var(--accent-pink);
+  border-color: rgba(219, 21, 61, 0.2);
 }
 
 .btn-signout:hover {
-  background: rgba(229, 62, 62, 0.05);
-  border-color: rgba(229, 62, 62, 0.4);
+  background: rgba(219, 21, 61, 0.1);
+  border-color: var(--accent-pink);
 }
 
 .replace-photo-btn {
@@ -186,7 +187,8 @@
 }
 
 .back-btn:hover {
-  opacity: 0.8;
+  color: var(--accent-pink);
+  opacity: 1;
 }
 
 .account-form {
@@ -235,7 +237,7 @@
   margin-top: 1rem;
   padding: 0.8rem 2rem;
   border-radius: 9999px;
-  background-color: #E53E3E;
+  background-color: var(--accent-pink);
   border: none;
   color: white;
   font-weight: 700;
@@ -245,7 +247,7 @@
 }
 
 .form-save-btn:hover {
-  background-color: #e41d48;
+  opacity: 0.9;
 }
 
 /* Toggles */
@@ -278,7 +280,7 @@
 }
 
 .toggle.active {
-  background: #E53E3E;
+  background: var(--accent-pink);
 }
 
 .toggle-thumb {
