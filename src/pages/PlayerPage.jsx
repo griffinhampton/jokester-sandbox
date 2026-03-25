@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate, Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { getItemById } from '../data/mockData';
 import './PlayerPage.css';
@@ -9,6 +9,8 @@ import chevronRightIcon from '../assets/video-player-icons/chevron-right.svg';
 import fullScreenIcon from '../assets/video-player-icons/full-screen-button.svg';
 import muteIcon from '../assets/video-player-icons/mute-button.svg';
 import settingsIcon from '../assets/video-player-icons/settings.svg';
+import upRightArrowIcon from '../assets/up-right-arrow.svg';
+import Sidebar from '../components/Sidebar';
 
 export default function PlayerPage() {
   const { id } = useParams();
@@ -20,21 +22,35 @@ export default function PlayerPage() {
 
   if (!isLoggedIn) return <Navigate to="/login" />;
 
+  const tourDates = [
+    { date: 'February 10', time: '7:00 PM', venue: 'Arlington Theater', loc: 'Arlington, VA' },
+    { date: 'February 15', time: '8:00 PM', venue: 'The Wilbur', loc: 'Boston, MA' },
+    { date: 'February 22', time: '7:30 PM', venue: 'Comedy Underground', loc: 'New York, NY' },
+  ];
+
+  const merchItems = [
+    { title: 'Anthony Jeselnik Hoodie', price: '$64.99', img: '/comedianpics/image 4.png' },
+    { title: 'Comedy Cellar Tee', price: '$34.99', img: '/comedianpics/image 5.png' },
+    { title: 'Zanies Poster', price: '$24.99', img: '/comedianpics/image 7.png' },
+    { title: 'Laugh Factory Mug', price: '$14.99', img: '/comedianpics/Image (8).png' },
+  ];
+
   return (
     <div className="player-layout">
+      <Sidebar />
       <div className="player-main">
         
+        <div className="player-header-bar">
+          <button className="sidebar-toggle-btn" onClick={() => navigate('/library')}>
+            <img 
+              src={chevronRightIcon} 
+              alt="Back to Library" 
+              style={{ transform: 'rotate(180deg)', width: '22px' }} 
+            />
+          </button>
+        </div>
+
         <div className="video-container">
-          <div className="player-header-bar">
-            <button className="sidebar-toggle-btn" onClick={() => navigate('/library')}>
-              <img 
-                src={chevronRightIcon} 
-                alt="Back to Library" 
-                style={{ transform: 'rotate(180deg)', width: '22px' }} 
-              />
-            </button>
-          </div>
-          
           <div className="video-backdrop" style={{ backgroundImage: `url("/comedianpics/playback-image.png")` }}></div>
 
           <div className="bottom-controls-overlay">
@@ -78,6 +94,39 @@ export default function PlayerPage() {
             <button className={`detail-tab ${activeTab === 'Tour' ? 'active' : ''}`} onClick={() => setActiveTab('Tour')}>Tour</button>
           </div>
 
+          {activeTab === 'Merch' && (
+            <div className="comedian-merch-grid">
+              {merchItems.map((merch, idx) => (
+                <div key={idx} className="comedian-merch-card">
+                  <div className="comedian-merch-img" style={{ backgroundImage: `url("${merch.img}")` }}></div>
+                  <div style={{ fontSize: '1rem', fontWeight: '600', color: 'white' }}>{merch.title}</div>
+                  <div style={{ color: '#888', fontSize: '0.95rem' }}>{merch.price}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'Tour' && (
+            <div className="tour-list">
+              {tourDates.map((tour, idx) => (
+                <div key={idx} className="tour-card">
+                  <div className="tour-date-col">
+                    <div className="tour-primary">{tour.date}</div>
+                    <div className="tour-secondary">{tour.time}</div>
+                  </div>
+                  <div className="tour-venue-col">
+                    <div className="tour-primary">{tour.venue}</div>
+                    <div className="tour-secondary">{tour.loc}</div>
+                  </div>
+                  <button className="tour-buy-btn">
+                    Buy Tickets 
+                    <img src={upRightArrowIcon} alt="Arrow" style={{ width: '12px', marginLeft: '6px' }} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
           {activeTab === 'Details' && (
             <div className="details-grid">
               <div className="details-main">
@@ -96,7 +145,11 @@ export default function PlayerPage() {
                 </div>
                 <div className="meta-block">
                   <span className="meta-label">Comedian</span>
-                  <span className="meta-value"><img src="/comedianpics/image 5.png" alt="Lucas Zelnick" className="meta-avatar" /> Lucas Zelnick</span>
+                  <span className="meta-value">
+                     <Link to="/comedian/lucas" className="comedian-link">
+                       <img src="/comedianpics/image 5.png" alt="Lucas Zelnick" className="meta-avatar" /> Lucas Zelnick
+                     </Link>
+                  </span>
                 </div>
               </div>
             </div>

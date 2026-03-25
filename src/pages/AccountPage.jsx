@@ -37,7 +37,7 @@ export default function AccountPage() {
           <div className="setting-icon-box"><MailIcon /></div>
           <div className="setting-text">
             <h4>Contact Details</h4>
-            <p>jane.doe@gmail.com</p>
+            <p>dawson@jokester.live</p>
           </div>
         </div>
         <button className="btn-manage" onClick={() => setActiveEditSetting('contact')}>Manage</button>
@@ -87,16 +87,16 @@ export default function AccountPage() {
         <div className="form-row split">
           <div className="form-group">
             <label>First Name</label>
-            <input type="text" defaultValue="Jane" />
+            <input type="text" defaultValue="Dawson" />
           </div>
           <div className="form-group">
             <label>Last Name</label>
-            <input type="text" defaultValue="Doe" />
+            <input type="text" defaultValue="Helmling" />
           </div>
         </div>
         <div className="form-group">
           <label>Email Address</label>
-          <input type="email" defaultValue="jane.doe@gmail.com" />
+          <input type="email" defaultValue="dawson@jokester.live" />
         </div>
         <div className="form-group">
           <label>Phone Number</label>
@@ -230,10 +230,10 @@ export default function AccountPage() {
 
         <div className="account-profile">
           <div className="account-profile-left">
-            <img src="/comedianpics/image 5.png" alt="Jane Doe" className="account-avatar" />
+            <img src="/j.svg" alt="Dawson Helmling" className="account-avatar" />
             <div className="account-profile-details">
-              <h2>Jane Doe</h2>
-              <p className="account-email">jane.doe@gmail.com</p>
+              <h2>Dawson Helmling</h2>
+              <p className="account-email">dawson@jokester.live</p>
               <p className="account-member-since">Member since: <span>Jan 18, 2026</span></p>
             </div>
           </div>
@@ -242,7 +242,6 @@ export default function AccountPage() {
 
         <div className="account-tabs-wrapper" style={{ gap: '2rem' }}>
           <button className={`tab-btn ${activeTab === 'account' ? 'active' : ''}`} onClick={() => { setActiveTab('account'); setActiveEditSetting(null); }} style={{ paddingBottom: '0.8rem' }}><GearIcon /> Account</button>
-          <button className={`tab-btn ${activeTab === 'billing' ? 'active' : ''}`} onClick={() => { setActiveTab('billing'); setActiveEditSetting(null); }} style={{ paddingBottom: '0.8rem' }}><CreditCardIcon /> Billing</button>
           <button className={`tab-btn ${activeTab === 'devices' ? 'active' : ''}`} onClick={() => { setActiveTab('devices'); setActiveEditSetting(null); }} style={{ paddingBottom: '0.8rem' }}><MonitorIcon /> Devices</button>
         </div>
         <div className="account-tabs-divider"></div>
@@ -252,7 +251,6 @@ export default function AccountPage() {
         {activeTab === 'account' && activeEditSetting === 'notification' && renderNotificationForm()}
         {activeTab === 'account' && activeEditSetting === 'password' && renderPasswordForm()}
 
-        {activeTab === 'billing' && renderBilling()}
         {activeTab === 'devices' && renderDevices()}
 
       </div>

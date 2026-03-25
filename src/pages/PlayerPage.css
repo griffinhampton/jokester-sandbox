@@ -8,6 +8,7 @@
 
 .player-main {
   flex: 1;
+  margin-left: 60px; /* offset for Sidebar */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -18,7 +19,7 @@
 .player-header-bar {
   position: absolute;
   top: 1.5rem;
-  left: 1.5rem;
+  left: 2rem;
   z-index: 50;
 }
 
@@ -43,10 +44,10 @@
 }
 
 .video-container {
-  width: 75%;
-  max-width: 1000px;
-  margin: 2.5rem auto 0 auto;
-  aspect-ratio: 16 / 9;
+  width: 85%;
+  max-width: 1200px;
+  margin: 2rem auto 0 auto;
+  aspect-ratio: 2 / 1;
   flex-shrink: 0;
   position: relative;
   background-color: #000;
@@ -61,7 +62,7 @@
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
-  background-position: center 20%;
+  background-position: center 10%;
   z-index: 1;
 }
 
@@ -207,16 +208,21 @@
 }
 
 .settings-row:hover {
-  background: rgba(255,255,255,0.1);
+  background: var(--accent-pink);
+  color: white;
 }
 
 .settings-row span:last-child {
   color: #999;
 }
 
+.settings-row:hover span:last-child {
+  color: white;
+}
+
 .details-section {
-  padding: 2.5rem 0 5rem 0;
-  width: calc(100% - 8rem);
+  padding: 1.5rem 0 5rem 0;
+  width: 85%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -243,7 +249,7 @@
 }
 
 .detail-tab:hover {
-  color: #CCC;
+  color: var(--accent-pink);
 }
 
 .detail-tab.active {
@@ -295,4 +301,17 @@
   height: 28px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.comedian-link {
+  color: #888;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: color 0.2s;
+}
+
+.comedian-link:hover {
+  color: var(--accent-pink);
 }
