@@ -1,0 +1,118 @@
+.shop-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 4.5rem 5rem;
+  overflow-y: auto;
+  margin-left: 60px; /* offset for fixed sidebar */
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.shop-title-chunk h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.shop-title-chunk p {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.shop-auth-buttons {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+.shop-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255,255,255,0.06);
+  margin: 3.5rem 0;
+}
+
+.top-divider {
+  margin-top: 0;
+  margin-bottom: 3.5rem;
+}
+
+.shop-comedian-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.comedian-info-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.comedian-mini-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.comedian-info-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #EEE;
+  margin: 0;
+}
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.merch-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.merch-card:hover {
+  transform: translateY(-4px);
+}
+
+.merch-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 0.85rem;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+}
+
+.merch-details {
+  text-align: center;
+}
+
+.merch-details h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 0.3rem 0;
+}
+
+.merch-details p {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0;
+}

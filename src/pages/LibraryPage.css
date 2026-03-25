@@ -1,0 +1,144 @@
+.library-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 5rem;
+  overflow-y: auto;
+  margin-left: 60px; /* offset for fixed sidebar */
+}
+
+.library-header {
+  margin-bottom: 2rem;
+}
+
+.library-title-row h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.library-title-row p {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0 0 2.5rem 0;
+}
+
+.library-tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: #777;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0 0 1rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: #DDD;
+}
+
+.tab-btn.active {
+  color: white;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.tab-count {
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+/* Library Grid */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 2.5rem 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.library-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.library-card:hover {
+  transform: translateY(-4px);
+}
+
+.library-card-image {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  height: 152px;
+  box-shadow: inset 0 -20px 40px rgba(0,0,0,0.5);
+}
+
+.duration-badge {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.library-card-info {
+  margin-top: 0.85rem;
+}
+
+.library-card-info h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.library-author {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0 0 0.2rem 0;
+}
+
+.library-date {
+  font-size: 0.65rem;
+  color: #666;
+  margin: 0;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 0;
+  color: #888;
+}

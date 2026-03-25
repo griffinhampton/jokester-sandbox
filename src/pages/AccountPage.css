@@ -1,0 +1,143 @@
+.account-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 5rem;
+  overflow-y: auto;
+  margin-left: 60px; /* offset for fixed sidebar */
+}
+
+.account-main-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin: 0 0 3.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.account-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.account-profile-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.account-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.account-profile-details h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.account-email {
+  color: #888;
+  font-size: 0.85rem;
+  margin: 0 0 0.4rem 0;
+}
+
+.account-member-since {
+  color: #666;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.account-member-since span {
+  color: white;
+}
+
+.account-tabs-wrapper {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.account-tabs-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255,255,255,0.08);
+}
+
+.account-settings-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.setting-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.setting-icon-box {
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #DDD;
+}
+
+.setting-text h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem 0;
+  color: #EEE;
+}
+
+.setting-text p {
+  color: #777;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.btn-manage {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-manage:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.btn-signout {
+  color: #E53E3E;
+  border-color: rgba(229, 62, 62, 0.2);
+}
+
+.btn-signout:hover {
+  background: rgba(229, 62, 62, 0.05);
+  border-color: rgba(229, 62, 62, 0.4);
+}
+
+.replace-photo-btn {
+  font-size: 0.75rem;
+}

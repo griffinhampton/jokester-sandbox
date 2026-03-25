@@ -107,7 +107,7 @@ export default function HomePage() {
               <button className="view-all-btn">View All</button>
             </div>
             <div className="content-rail">
-              {hottestContent.map(item => <ContentCard key={item.id} item={item} type="portrait" />)}
+              {hottestContent.map(item => <ContentCard key={item.id} item={item} type="landscape" />)}
               <div className="rail-arrow-right"><button className="nav-btn"><ArrowRight /></button></div>
             </div>
           </section>
@@ -118,7 +118,7 @@ export default function HomePage() {
               <button className="view-all-btn">View All</button>
             </div>
             <div className="content-rail">
-              {liveUpcomingContent.map(item => <ContentCard key={item.id} item={item} type="landscape" />)}
+              {liveUpcomingContent.map(item => <ContentCard key={item.id} item={item} type="portrait" />)}
               <div className="rail-arrow-right"><button className="nav-btn"><ArrowRight /></button></div>
             </div>
           </section>
