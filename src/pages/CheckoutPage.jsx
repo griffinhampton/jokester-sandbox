@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { getItemById } from '../data/mockData';
 import Sidebar from '../components/Sidebar';
 import upRightArrowIcon from '../assets/up-right-arrow.svg';
+import chevronRightIcon from '../assets/video-player-icons/chevron-right.svg';
 import './CheckoutPage.css';
 
 export default function CheckoutPage() {
@@ -13,6 +14,13 @@ export default function CheckoutPage() {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('Details');
   const [selectedPlan, setSelectedPlan] = useState('lifetime');
+
+  useEffect(() => {
+    // Force the global router container back to top upon navigation
+    const container = document.querySelector('.page-content');
+    if (container) container.scrollTo(0, 0);
+    window.scrollTo(0, 0);
+  }, [id]);
   
   const item = getItemById(id);
 
@@ -63,6 +71,10 @@ export default function CheckoutPage() {
         <div className="checkout-hero">
           <div className="checkout-hero-bg" style={{ backgroundImage: `url("${HeroItem.image}")` }}></div>
           
+          <button className="back-to-home-btn" onClick={() => navigate('/')}>
+             <img src={chevronRightIcon} alt="Back to Home" style={{ transform: 'rotate(180deg)', width: '22px' }} />
+          </button>
+
           <div className="checkout-hero-content">
             <span className="age-badge">HD</span>
             <h1 className="checkout-title">{HeroItem.title}</h1>

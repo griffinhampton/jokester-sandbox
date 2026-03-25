@@ -37,6 +37,29 @@
   background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%), linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0) 40%);
 }
 
+.back-to-home-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  pointer-events: auto;
+  backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.back-to-home-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
 .checkout-hero-content {
   position: relative;
   z-index: 10;
