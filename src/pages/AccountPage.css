@@ -32,9 +32,13 @@
   height: 90px;
   border-radius: 50%;
   object-fit: contain;
-  padding: 18px;
+  padding: 8px;
   background-color: #111;
   border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .account-profile-details h2 {
