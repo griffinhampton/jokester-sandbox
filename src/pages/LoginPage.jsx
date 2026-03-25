@@ -15,7 +15,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="login-wrapper" style={{ maxHeight: '100vh', overflowY: 'hidden' }}>
       
       {/* Header Bar */}
       <div className="login-header">

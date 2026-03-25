@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Navigate, Link, useNavigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { getItemById } from '../data/mockData';
 import './PlayerPage.css';
@@ -29,7 +29,7 @@ export default function PlayerPage() {
             <img 
               src={chevronRightIcon} 
               alt="Back to Library" 
-              style={{ transform: 'rotate(180deg)', width: '20px' }} 
+              style={{ transform: 'rotate(180deg)', width: '22px' }} 
             />
           </button>
         </div>
@@ -38,7 +38,7 @@ export default function PlayerPage() {
           <div className="video-backdrop" style={{ backgroundImage: `url("/comedianpics/playback-image.png")` }}></div>
 
           <button className="center-play-button">
-            <img src={playIcon} alt="Play Video" style={{ width: '28px', marginLeft: '6px' }} />
+            <img src={playIcon} alt="Play Video" style={{ width: '32px', marginLeft: '6px' }} />
           </button>
 
           <div className="bottom-controls-overlay">
@@ -51,12 +51,11 @@ export default function PlayerPage() {
 
             <div className="controls-row">
               <div className="controls-left">
-                <button className="control-btn"><img src={playIcon} alt="Play" style={{ width: '20px' }} /></button>
+                <button className="control-btn"><img src={playIcon} alt="Play" style={{ width: '22px' }} /></button>
+                <button className="control-btn"><img src={muteIcon} alt="Mute" style={{ width: '22px' }} /></button>
                 <span className="time-display">0:30 / 1:00</span>
               </div>
               <div className="controls-right">
-                <button className="control-btn"><img src={muteIcon} alt="Mute" style={{ width: '22px' }} /></button>
-                
                 <div className="settings-dropdown-wrapper">
                   <button className="control-btn" onClick={() => setSettingsOpen(!settingsOpen)}>
                     <img src={settingsIcon} alt="Settings" style={{ width: '22px' }} />

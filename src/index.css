@@ -31,6 +31,31 @@ body {
 
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: white #111111;
+}
+
+/* WebKit Scrollbar Styling (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 24px;
+  height: 24px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 100px;
+  border: 6px solid #111111; /* Sides padding */
+  border-top: 60px solid #111111; /* Forces the pill to be extremely short vertically */
+  border-bottom: 60px solid #111111;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #EEE;
 }
 
 .app-container {
