@@ -1,0 +1,405 @@
+.home-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0A0A0A; /* Match strictly with black/dark */
+}
+
+.home-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin-left: 60px;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 620px; /* Matched to the large layout size */
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centered content vertically */
+  padding: 0 5rem;
+}
+
+.hero-header-auth {
+  position: absolute;
+  top: 2.5rem;
+  right: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  z-index: 10;
+  padding: 0;
+  min-height: 48px;
+  min-width: 220px;
+}
+
+.hero-signin-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 9999px;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero-signin-link:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--accent-pink);
+}
+
+.hero-started-btn {
+  padding: 0.7rem 1.7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px 0 rgba(219,21,61,0.08);
+  letter-spacing: 0.01em;
+  margin-left: 0.25rem;
+  border: none;
+  outline: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-started-btn:hover {
+  background: #e41d48;
+  color: #fff;
+}
+
+.hero-nav-arrows {
+  position: absolute;
+  right: 5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.nav-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #DDD;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+  margin-top: 4rem;
+}
+
+.hero-date {
+  font-size: 0.8rem;
+  color: #CCC;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.red-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-pink);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: 5.5rem; /* Matched the huge screenshot text */
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: #AAA;
+  margin-bottom: 2.5rem;
+}
+
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-white {
+  background-color: white;
+  color: black;
+  border-radius: 9999px;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-white:hover {
+  background-color: #EEE;
+}
+
+.hero-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-price {
+  font-size: 0.85rem;
+  color: #AAA;
+  margin: 0;
+}
+
+.hero-price strong {
+  color: white;
+  font-size: 1rem;
+}
+
+.hero-subtext {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.hero-pagination {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dot.active {
+  background-color: white;
+  width: 18px;
+  border-radius: 4px;
+}
+
+/* Category Rails */
+.main-content-scroll {
+  padding: 0 5rem;
+  margin-top: 1rem; /* Adjusting the flow beneath hero */
+  position: relative;
+  z-index: 5;
+}
+
+.category-section {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.category-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.view-all-btn { /* Changed to Pill style */
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-all-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.content-rail {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.featured-rail {
+  display: flex;
+  gap: 2rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.rail-arrow-right {
+  position: absolute;
+  right: -10px; /* Let it overlap the edge */
+  top: 40%;
+  transform: translateY(-50%);
+  background: linear-gradient(to right, transparent, rgba(10,10,10,0.8) 40%, rgba(10,10,10,1) 100%);
+  padding-left: 3rem;
+  padding-right: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.content-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+}
+
+.portrait-card {
+  width: 190px;
+}
+
+.portrait-card .card-image-placeholder {
+  height: 285px;
+}
+
+.landscape-card {
+  width: 270px;
+}
+
+.landscape-card .card-image-placeholder {
+  height: 152px;
+}
+
+.card-image-placeholder {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 -20px 40px rgba(0,0,0,0.5); /* Subtle inner shadow */
+}
+
+.card-number {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+}
+
+.card-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.lock-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.card-info {
+  margin-top: 0.75rem;
+}
+
+.card-info h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.card-info p {
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0;
+}
+
+/* Featured Comedians */
+.featured-comedian {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.featured-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.featured-circle:hover {
+  border-color: var(--accent-pink);
+}
+
+.featured-comedian p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #CCC;
+  margin: 0;
+}
