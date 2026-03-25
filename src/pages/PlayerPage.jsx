@@ -1,71 +1,112 @@
-import React from 'react';
-import { useParams, Navigate, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, Navigate, Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { getItemById } from '../data/mockData';
+import './PlayerPage.css';
+
+import playIcon from '../assets/video-player-icons/play-button.svg';
+import chevronRightIcon from '../assets/video-player-icons/chevron-right.svg';
+import fullScreenIcon from '../assets/video-player-icons/full-screen-button.svg';
+import muteIcon from '../assets/video-player-icons/mute-button.svg';
+import settingsIcon from '../assets/video-player-icons/settings.svg';
 
 export default function PlayerPage() {
   const { id } = useParams();
-  const { isLoggedIn, ownsItem } = useUser();
-  const item = getItemById(id);
+  const { isLoggedIn } = useUser();
+  const navigate = useNavigate();
 
-  if (!isLoggedIn) {
-    return <Navigate to="/login" />;
-  }
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('Details');
 
-  if (!item) {
-    return <div style={{ padding: '2rem' }}>Video not found.</div>;
-  }
-
-  if (!ownsItem(id)) {
-    return (
-      <div style={{ maxWidth: '600px', margin: '4rem auto', textAlign: 'center', backgroundColor: 'var(--bg-card)', padding: '3rem', borderRadius: '16px' }}>
-        <h2 style={{ marginBottom: '1rem' }}>Access Denied</h2>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>You need to purchase this content to view it.</p>
-        <Link to={`/checkout/${id}`} className="btn btn-primary" style={{ textDecoration: 'none', padding: '0.75rem 1.5rem', display: 'inline-block' }}>
-          Go to Checkout
-        </Link>
-      </div>
-    );
-  }
+  if (!isLoggedIn) return <Navigate to="/login" />;
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
-      <div style={{ marginBottom: '1.5rem' }}>
-        <Link to="/account" className="btn-link" style={{ textDecoration: 'none' }}>← Back to your Inventory</Link>
-      </div>
-      
-      {/* Fake Video Player 16:9 */}
-      <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', backgroundColor: '#000', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-        <div style={{ 
-          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url("${item.image}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          {/* Play Icon Fake */}
-          <div style={{ 
-            width: '80px', height: '80px', 
-            backgroundColor: 'rgba(219, 21, 61, 0.9)', 
-            borderRadius: '50%', 
-            display: 'flex', alignItems: 'center', justifyContent: 'center', 
-            cursor: 'pointer',
-            boxShadow: '0 0 20px rgba(219, 21, 61, 0.5)'
-          }}>
-             <div style={{ width: 0, height: 0, borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderLeft: '25px solid white', marginLeft: '8px' }}></div>
-          </div>
-          <p style={{ marginTop: '2rem', fontWeight: 'bold', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem' }}>
-            SIMULATED VIDEO PLAYBACK
-          </p>
+    <div className="player-layout">
+      <div className="player-main">
+        
+        <div className="player-header-bar">
+          <button className="sidebar-toggle-btn" onClick={() => navigate('/library')}>
+            <img 
+              src={chevronRightIcon} 
+              alt="Back to Library" 
+              style={{ transform: 'rotate(180deg)', width: '20px' }} 
+            />
+          </button>
         </div>
-      </div>
-      
-      <div style={{ marginTop: '2rem' }}>
-        <h1 style={{ marginBottom: '0.5rem' }}>{item.title}</h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', margin: 0 }}>{item.author}</p>
+
+        <div className="video-container">
+          <div className="video-backdrop" style={{ backgroundImage: `url("/comedianpics/playback-image.png")` }}></div>
+
+          <button className="center-play-button">
+            <img src={playIcon} alt="Play Video" style={{ width: '28px', marginLeft: '6px' }} />
+          </button>
+
+          <div className="bottom-controls-overlay">
+            <div className="progress-bar-container">
+              <div className="progress-bar-bg"></div>
+              <div className="progress-filled" style={{ width: '48%' }}>
+                <div className="progress-handle"></div>
+              </div>
+            </div>
+
+            <div className="controls-row">
+              <div className="controls-left">
+                <button className="control-btn"><img src={playIcon} alt="Play" style={{ width: '20px' }} /></button>
+                <span className="time-display">0:30 / 1:00</span>
+              </div>
+              <div className="controls-right">
+                <button className="control-btn"><img src={muteIcon} alt="Mute" style={{ width: '22px' }} /></button>
+                
+                <div className="settings-dropdown-wrapper">
+                  <button className="control-btn" onClick={() => setSettingsOpen(!settingsOpen)}>
+                    <img src={settingsIcon} alt="Settings" style={{ width: '22px' }} />
+                  </button>
+                  {settingsOpen && (
+                    <div className="settings-popup">
+                      <div className="settings-row"><span>Playback speed</span><span>Normal &gt;</span></div>
+                      <div className="settings-row"><span>Subtitles</span><span>Off &gt;</span></div>
+                      <div className="settings-row"><span>Quality</span><span>Auto 1080p &gt;</span></div>
+                    </div>
+                  )}
+                </div>
+                
+                <button className="control-btn"><img src={fullScreenIcon} alt="Fullscreen" style={{ width: '22px' }} /></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="details-section">
+          <div className="details-tabs">
+            <button className={`detail-tab ${activeTab === 'Details' ? 'active' : ''}`} onClick={() => setActiveTab('Details')}>Details</button>
+            <button className={`detail-tab ${activeTab === 'Merch' ? 'active' : ''}`} onClick={() => setActiveTab('Merch')}>Merch</button>
+            <button className={`detail-tab ${activeTab === 'Tour' ? 'active' : ''}`} onClick={() => setActiveTab('Tour')}>Tour</button>
+          </div>
+
+          {activeTab === 'Details' && (
+            <div className="details-grid">
+              <div className="details-main">
+                <p>Lucas Zelnick has been making audiences laugh for over a decade with his sharp observational humor and quick wit. In "Emotionally Available, Unfortunately," he tackles the modern dating landscape with brutal honesty and self-deprecating charm.</p>
+                <p>From therapy breakthroughs to dating app disasters, Lucas shares stories that will make you laugh, cringe, and maybe text your ex. This special captures everything that's made him a viral sensation - the timing, the relatability, and the willingness to be painfully honest about his own romantic failures.</p>
+                <p>Recorded live at a sold-out show in Brooklyn, this is Lucas at his most vulnerable and hilarious.</p>
+              </div>
+              <div className="details-meta">
+                <div className="meta-block">
+                  <span className="meta-label">Venue</span>
+                  <span className="meta-value">Brooklyn Steel, NYC</span>
+                </div>
+                <div className="meta-block">
+                  <span className="meta-label">Runtime</span>
+                  <span className="meta-value">65 minutes</span>
+                </div>
+                <div className="meta-block">
+                  <span className="meta-label">Comedian</span>
+                  <span className="meta-value"><img src="/comedianpics/image 5.png" alt="Lucas Zelnick" className="meta-avatar" /> Lucas Zelnick</span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

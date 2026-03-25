@@ -17,12 +17,27 @@
 .hero-section {
   position: relative;
   width: 100%;
-  height: 620px; /* Matched to the large layout size */
+  height: 620px;
+  overflow: hidden;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
-  background-position: center top;
+  background-position: center 25%;
+  transition: opacity 1.2s ease-in-out;
+  z-index: 1;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centered content vertically */
+  justify-content: center;
   padding: 0 5rem;
 }
 
@@ -68,6 +83,7 @@
   border: none;
   outline: none;
   transition: background 0.2s, color 0.2s;
+  text-decoration: none;
 }
 
 .hero-started-btn:hover {
@@ -201,6 +217,8 @@
   height: 6px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .dot.active {
@@ -251,32 +269,63 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-.content-rail {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: hidden;
+.content-rail-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.content-rail, .featured-rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding-bottom: 20px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.content-rail::-webkit-scrollbar, .featured-rail::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.content-rail {
+  gap: 1.25rem;
 }
 
 .featured-rail {
-  display: flex;
   gap: 2rem;
-  overflow-x: hidden;
-  position: relative;
 }
 
-.rail-arrow-right {
+.rail-arrow {
   position: absolute;
-  right: -10px; /* Let it overlap the edge */
   top: 40%;
   transform: translateY(-50%);
-  background: linear-gradient(to right, transparent, rgba(10,10,10,0.8) 40%, rgba(10,10,10,1) 100%);
-  padding-left: 3rem;
-  padding-right: 10px;
-  height: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  color: white;
   z-index: 10;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.rail-arrow:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow {
+  left: -22px;
+}
+
+.right-arrow {
+  right: -22px;
 }
 
 .content-card {
@@ -310,7 +359,7 @@
 
 .card-image-placeholder {
   background-size: cover;
-  background-position: center;
+  background-position: center 15%;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
@@ -388,7 +437,7 @@
   height: 90px;
   border-radius: 50%;
   background-size: cover;
-  background-position: center;
+  background-position: center 15%;
   border: 1px solid rgba(255,255,255,0.05);
   transition: border-color 0.2s;
   cursor: pointer;

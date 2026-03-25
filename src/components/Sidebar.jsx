@@ -8,6 +8,7 @@ export default function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownView, setDropdownView] = useState('main'); // 'main' | 'language' | 'theme'
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -64,49 +65,96 @@ export default function Sidebar() {
       <div className="sidebar-top" ref={dropdownRef}>
         {isLoggedIn ? (
           <div className="profile-menu-container">
-            <button className="user-icon-wrapper" onClick={() => setDropdownOpen(!dropdownOpen)}>
+            <button className="user-icon-wrapper" onClick={() => { if (!dropdownOpen) setDropdownView('main'); setDropdownOpen(!dropdownOpen); }}>
               <img src="/comedianpics/image 5.png" alt="Profile" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} />
             </button>
             
             {dropdownOpen && (
               <div className="profile-dropdown">
-                <Link to="/account" className="dropdown-item" style={{ textDecoration: 'none' }} onClick={() => setDropdownOpen(false)}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                  <span>Account</span>
-                </Link>
-                <Link to="/library" className="dropdown-item" style={{ textDecoration: 'none' }} onClick={() => setDropdownOpen(false)}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-                  <span>My Stuff</span>
-                </Link>
-                
-                <div className="dropdown-divider"></div>
-                
-                <div className="dropdown-item flex-between" onClick={() => setDropdownOpen(false)}>
-                  <div className="dropdown-item-left">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    <span>Language</span>
-                  </div>
-                  <div className="dropdown-item-right">
-                    English <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                  </div>
-                </div>
-                
-                <div className="dropdown-item flex-between" onClick={() => setDropdownOpen(false)}>
-                  <div className="dropdown-item-left">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    <span>Theme</span>
-                  </div>
-                  <div className="dropdown-item-right">
-                    Dark <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                  </div>
-                </div>
-                
-                <div className="dropdown-divider"></div>
-                
-                <div className="dropdown-item" onClick={handleLogout}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                  <span>Logout</span>
-                </div>
+                {dropdownView === 'main' && (
+                  <>
+                    <Link to="/account" className="dropdown-item" style={{ textDecoration: 'none' }} onClick={() => setDropdownOpen(false)}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      <span>Account</span>
+                    </Link>
+                    <Link to="/library" className="dropdown-item" style={{ textDecoration: 'none' }} onClick={() => setDropdownOpen(false)}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                      <span>My Stuff</span>
+                    </Link>
+                    
+                    <div className="dropdown-divider"></div>
+                    
+                    <div className="dropdown-item flex-between" onClick={() => setDropdownView('language')}>
+                      <div className="dropdown-item-left">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span>Language</span>
+                      </div>
+                      <div className="dropdown-item-right">
+                        English <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                      </div>
+                    </div>
+                    
+                    <div className="dropdown-item flex-between" onClick={() => setDropdownView('theme')}>
+                      <div className="dropdown-item-left">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <span>Theme</span>
+                      </div>
+                      <div className="dropdown-item-right">
+                        Dark <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                      </div>
+                    </div>
+                    
+                    <div className="dropdown-divider"></div>
+                    
+                    <div className="dropdown-item" onClick={handleLogout}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                      <span>Logout</span>
+                    </div>
+                  </>
+                )}
+
+                {dropdownView === 'language' && (
+                  <>
+                    <div className="dropdown-item" onClick={() => setDropdownView('main')} style={{fontWeight: 600, color: 'white'}}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                      <span>Language</span>
+                    </div>
+                    <div className="dropdown-divider"></div>
+                    <div className="dropdown-item flex-between" onClick={() => setDropdownOpen(false)}>
+                      <span>English</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <span>Spanish</span>
+                    </div>
+                    <div className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <span>French</span>
+                    </div>
+                    <div className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <span>German</span>
+                    </div>
+                  </>
+                )}
+
+                {dropdownView === 'theme' && (
+                  <>
+                    <div className="dropdown-item" onClick={() => setDropdownView('main')} style={{fontWeight: 600, color: 'white'}}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                      <span>Theme</span>
+                    </div>
+                    <div className="dropdown-divider"></div>
+                    <div className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <span>Light</span>
+                    </div>
+                    <div className="dropdown-item flex-between" onClick={() => setDropdownOpen(false)}>
+                      <span>Dark</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <span>System</span>
+                    </div>
+                  </>
+                )}
               </div>
             )}
           </div>

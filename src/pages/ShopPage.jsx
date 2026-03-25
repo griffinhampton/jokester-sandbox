@@ -4,7 +4,39 @@ import { useUser } from '../context/UserContext';
 import Sidebar from '../components/Sidebar';
 import './ShopPage.css';
 
-const getRandomImage = () => `/comedianpics/image ${Math.floor(Math.random() * 28) + 1}.png`;
+const validImages = [
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 1 (1).png",
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 1.png",
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 2 (1).png",
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 2 (2).png",
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 2 (3).png",
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 2 (4).png",
+  "ChatGPT Image 3 мар. 2026 г., 12_16_20 2.png",
+  "ChatGPT Image 3 мар. 2026 г., 12_24_47 1.png",
+  "ChatGPT Image 3 мар. 2026 г., 12_44_05 1 (1).png",
+  "ChatGPT Image 3 мар. 2026 г., 12_44_05 1.png",
+  "ChatGPT Image 3 мар. 2026 г., 12_44_05 2.png",
+  "ChatGPT Image 3 мар. 2026 г., 12_44_05 3.png",
+  "ChatGPT Image 3 мар. 2026 г., 12_44_05 4.png",
+  "ChatGPT Image 3 мар. 2026 г., 13_14_56 1 (1).png",
+  "ChatGPT Image 3 мар. 2026 г., 13_14_56 1 (2).png",
+  "ChatGPT Image 3 мар. 2026 г., 13_14_56 1.png",
+  "ChatGPT Image 3 мар. 2026 г., 13_16_38 1 (1).png",
+  "ChatGPT Image 3 мар. 2026 г., 13_16_38 1.png",
+  "ChatGPT Image 3 мар. 2026 г., 13_35_39 1.png",
+  "Image (10).png",
+  "Image (11).png",
+  "Image (12).png",
+  "Image (8).png",
+  "Image (9).png",
+  "image 4.png",
+  "image 5.png",
+  "image 7.png"
+];
+const getRandomImage = () => {
+    const randomImg = validImages[Math.floor(Math.random() * validImages.length)];
+    return `/comedianpics/${randomImg}`;
+};
 
 const shopData = [
     {
@@ -34,7 +66,7 @@ const shopData = [
     {
       id: "kam",
       name: "Kam Patterson",
-      avatar: "/comedianpics/image 12.png",
+      avatar: "/comedianpics/Image (12).png",
       items: [
         { title: "No Filter Hoodie", price: "$54.99", img: getRandomImage() },
         { title: "Raw & Uncut Tee", price: "$32.99", img: getRandomImage() },
