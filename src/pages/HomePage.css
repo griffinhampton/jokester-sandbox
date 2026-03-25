@@ -300,11 +300,12 @@
 }
 
 .landscape-card {
-  width: 270px;
+  width: calc((100% - 5rem) / 5);
 }
 
 .landscape-card .card-image-placeholder {
-  height: 152px;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 
 .card-image-placeholder {
