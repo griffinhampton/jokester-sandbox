@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: 4rem 5rem;
   overflow-y: auto;
-  margin-left: 60px; /* offset for fixed sidebar */
+  margin-left: 60px; 
 }
 
 .account-main-title {
@@ -192,24 +192,48 @@
   transition: opacity 0.2s;
 }
 
+.back-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+
+/* New wrapper to perfectly center the icon and create the circle */
+.back-btn .icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.2s;
+}
+
 .back-btn:hover {
   color: var(--accent-pink);
-  opacity: 1;
 }
 
-.account-form {
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* Adds the centered circular background behind the icon on hover */
+.back-btn:hover .icon-wrapper {
+  background: rgba(219, 21, 61, 0.15);
 }
 
-.form-row.split {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.form-group {
+/* Optional: nudge SVG if needed for perfect centering */
+.back-btn .icon-wrapper svg {
+  display: block;
+  margin: auto;
+  /* Uncomment if you want to nudge: */
+  /* transform: translateX(-1px); */
   display: flex;
   flex-direction: column;
   flex: 1;

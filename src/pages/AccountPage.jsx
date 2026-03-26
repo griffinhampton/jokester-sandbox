@@ -81,7 +81,7 @@ export default function AccountPage() {
   const renderContactForm = () => (
     <div className="settings-edit-view">
       <button className="back-btn" onClick={() => setActiveEditSetting(null)}>
-        <ArrowLeftIcon /> Contact Details
+        <span className="icon-wrapper"><ArrowLeftIcon /></span> Contact Details
       </button>
       <div className="account-form">
         <div className="form-row split">
@@ -110,7 +110,7 @@ export default function AccountPage() {
   const renderNotificationForm = () => (
     <div className="settings-edit-view">
       <button className="back-btn" onClick={() => setActiveEditSetting(null)}>
-        <ArrowLeftIcon /> Notification
+        <span className="icon-wrapper"><ArrowLeftIcon /></span> Notification
       </button>
       <div className="account-form form-toggles">
         <div className="toggle-row">
@@ -133,7 +133,7 @@ export default function AccountPage() {
   const renderPasswordForm = () => (
     <div className="settings-edit-view">
       <button className="back-btn" onClick={() => setActiveEditSetting(null)}>
-        <ArrowLeftIcon /> Password
+        <span className="icon-wrapper"><ArrowLeftIcon /></span> Password
       </button>
       <div className="account-form">
         <div className="form-group">
@@ -230,7 +230,9 @@ export default function AccountPage() {
 
         <div className="account-profile">
           <div className="account-profile-left">
-            <img src="/j.svg" alt="Dawson Helmling" className="account-avatar" />
+            <div className="account-avatar-container">
+              <img src="/j.svg" alt="Dawson Helmling" className="account-avatar" />
+            </div>
             <div className="account-profile-details">
               <h2>Dawson Helmling</h2>
               <p className="account-email">dawson@jokester.live</p>
